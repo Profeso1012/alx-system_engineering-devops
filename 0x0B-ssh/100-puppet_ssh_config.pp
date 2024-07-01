@@ -1,7 +1,7 @@
-# Ensure the SSH config directory exists
+# Ensure thes SSH config directory exists
 file { '/etc/ssh/ssh_config':
-  ensure    => 'present'
-  content   => "
+  ensure  => 'present'
+  content => "
   Host *
       SendEnv LAN LC_*
       HashKnownHosts yes
