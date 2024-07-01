@@ -1,13 +1,13 @@
-# Ensure thes SSH config directory exists
+# mmanifest to setup ssh config file
 file { '/etc/ssh/ssh_config':
-  ensure  => 'present'
+  ensure  => 'present',
   content => "
   Host *
-      SendEnv LAN LC_*
+      SendEnv LANG LC_*
       HashKnownHosts yes
       GSSAPIAuthentication yes
       GSSAPIDelegateCredentials no
-      IdentifyFile ~/.ssh/school
+      IdentityFile ~/.ssh/school
       PasswordAuthentication no
   "
 }
