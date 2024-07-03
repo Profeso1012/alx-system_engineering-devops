@@ -1,0 +1,74 @@
+  190  sudo apt-get update
+  191  sudo apt-get install nginx
+  192  clear
+  193  ls
+  194  sudo chmod -R 755 /var/www
+  195  ls /var/www/
+  196  sudo mkdir -p /var/www/example.com/html
+  197  mkdir -p /var/www/test.com/html
+  198  sudo mkdir -p /var/www/test.com/html
+  199  sudo chown -R $USER:$USER /var/www/example.com/html
+  200  vi /var/www/test.com/html/index.html
+  201  vi /var/www/example.com/html/index.html
+  202  cp /var/www/example.com/html/index.html /var/www/test.com/html/index.html
+  203  sudo chown -R $USER:$USER /var/www/test.com/html
+  204  cp /var/www/example.com/html/index.html /var/www/test.com/html/index.html
+  205  vi /var/www/test.com/html/index.html
+  206  vi /var/www/example.com/html/index.html
+  207  ls
+  208  sudo cp /etc/nginx/sites-available/default /etc/nginx/sites-available/example.com
+  209  sudo vi /etc/nginx/sites-available/example.com
+  210  grep -R default_server /etc/nginx/sites-enabled/
+  211  sudo vi /etc/nginx/sites-available/example.com
+  212  sudo cp /etc/nginx/sites-available/example.com /etc/nginx/sites-available/test.com
+  213  sudo vi /etc/nginx/sites-available/test.com
+  214  sudo ln -s /etc/nginx/sites-available/example.com /etc/nginx/sites-enabled/
+  215  sudo ln -s /etc/nginx/sites-available/test.com /etc/nginx/sites-enabled/
+  216  sudo vi /etc/nginx/nginx.conf
+  217  sudo nginx -t
+  218  sudo vi /etc/nginx/sites-available/test.com
+  219  sudo nginx -t
+  220  sudo systemctl restart nginx
+  221  sudo service nginx restart
+  222  clear
+  223  sudo nginx -s reload
+  224  sudo vi /etc/hosts
+  225  ifconfig
+  226  hostname -I
+  227  sudo vi /etc/hosts
+  228  history
+  229  ssh 3cce38c7525b@3cce38c7525b.2b7ac73a.alx-cod.online
+  230  ls
+  231  vi ~/.ssh/id_rsa
+  232  ./0-transfer_file some_page 100.25.165.20 ubuntu ~/.ssh/id_rsa
+  233  ./0-transfer_file cheats 100.25.165.20 ubuntu ~/.ssh/id_rsa
+  234  ./0-transfer_file git_puppeteer.pp 100.25.165.20 ubuntu ~/.ssh/id_rsa
+  235  touch sill.txt
+  236  ./0-transfer_file sill.txt 100.25.165.20 ubuntu ~/.ssh/id_rsa
+  237  ls
+  238  rm sill.txt
+  239  cd alx-system_engineering-devops/
+  240  git pull
+  241  cd 0x0C-web_server/
+  242  ls
+  243  touch sill.txt
+  244  ./0-transfer_file sill.txt 100.25.165.20 ubuntu ~/.ssh/id_rsa
+  245  ssh-copy-id -i ~/.ssh/id_rsa.pub ubuntu@100.25.165.20
+  246  cat .ssh/id_rsa.pub
+  247  cat ~/.ssh/id_rsa.pub
+  248  ssh 3cce38c7525b@3cce38c7525b.2b7ac73a.alx-cod.online
+  249  ssh ubuntu@100.25.165.20
+  250  ./0-transfer_file sill.txt 100.25.165.20 ubuntu ~/.ssh/id_rsa
+  251  ssh ubuntu@100.25.165.20 -i ~/.ssh/id_rsa 'ls'
+  252  cd ~
+  253  ls
+  254  cd cheats/
+  255  ls
+  256  cd Lordwill1
+  257  ls
+  258  cd alx-system_engineering-devops/
+  259  cd 0x0C-web_server/
+  260  ls
+  261  vi 0-transfer_file
+  262  vi 1-install_nginx_web_server
+  263  cd ~/alx-system_engineering-devops/0x0C-web_server
