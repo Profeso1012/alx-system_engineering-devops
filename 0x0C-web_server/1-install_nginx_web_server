@@ -10,5 +10,6 @@ sudo apt-get update -y
 sudo apt-get install nginx -y
 sudo ufw allow 'Nginx HTTP'
 echo "Hello World!" | sudo tee /var/www/html/index.html
+sudo service nginx restart
 sudo nginx -s reload
 sudo lsof -i:80
