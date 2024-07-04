@@ -12,7 +12,7 @@ sudo touch /usr/share/nginx/html/page_error_404.html
 # grant permission
 sudo chmod 777 /usr/share/nginx/html/page_error_404.html
 #write into the file 
-sudo echo "Ceci n'est pas une page" > /usr/share/nginx/html/page_error_404.html
+echo "Ceci n'est pas une page" | sudo tee /usr/share/nginx/html/page_error_404.html > /dev/null
 
 sudo sed -i '20i error_page 404 /page_error_404.html;' /etc/nginx/sites-enabled/default
 
