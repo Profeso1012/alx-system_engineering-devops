@@ -1,22 +1,19 @@
 #!/usr/bin/env bash
-
 # Allow traffic on port 8080
 sudo ufw allow 8080/tcp
 
 # Add Port Forwarding Rule to before.rules
-sudo tee -a /etc/ufw/before.rules <<EOL
-# Port forwarding rule for redirecting 8080 to 80
-*nat
-:PREROUTING ACCEPT [0:0]
-:POSTROUTING ACCEPT [0:0]
-:OUTPUT ACCEPT [0:0]
-
-# Redirect traffic from port 8080 to 80
--A PREROUTING -p tcp --dport 8080 -j REDIRECT --to-port 80
-
-COMMIT
-EOL
-
+# Add Port Forwarding Rule to before.rules before the *filter line
+sudo sed -i '/^*filter/i \
+*nat\n\
+:PREROUTING ACCEPT [0:0]\n\
+:POSTROUTING ACCEPT [0:0]\n\
+:OUTPUT ACCEPT [0:0]\n\
+\n\
+# Redirect traffic from port 8080 to 80\n\
+-A PREROUTING -p tcp --dport 8080 -j REDIRECT --to-port 80\n\
+\n\
+COMMIT\n' /etc/ufw/before.rules
 # Reload UFW to apply changes
 sudo ufw reload
 
